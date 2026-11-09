@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <unistd.h>
+
+int main(void)
+{
+    char name[100];
+    printf("Enter your name: ");
+    fgets(name, sizeof(name), stdin);
+    FILE *f = fopen("output.txt","a");
+    fprintf(f,"Hello %s, PID = %d\n", name,getpid());
+    fclose(f);
+    return 0;
+}
